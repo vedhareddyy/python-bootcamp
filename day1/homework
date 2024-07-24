@@ -1,0 +1,118 @@
+'''#find a prime number using square root method
+import math
+
+def is_prime(n):
+    # Check if n is less than 2 (since 2 is the smallest prime number)
+    if n <= 1:
+        return False
+    # Check for divisibility by 2
+    if n == 2:
+        return True
+    if n % 2 == 0:
+        return False
+    
+    # Check divisibility from 3 to the square root of n
+    for i in range(3, int(math.sqrt(n)) + 1, 2):
+        if n % i == 0:
+            return False
+    return True
+
+# Test the function
+number = 29
+if is_prime(number):
+    print(f"{number} is a prime number.")
+else:
+    print(f"{number} is not a prime number.")'''
+
+
+'''#check whether given number is palindrome or not
+def is_palindrome(number):
+    # Convert the number to a string to check for palindrome properties
+    str_num = str(number)
+    
+    # Compare the string to its reverse
+    if str_num == str_num[::-1]:
+        return True
+    else:
+        return False
+
+# Test the function
+number = 12321
+if is_palindrome(number):
+    print(f"{number} is a palindrome.")
+else:
+    print(f"{number} is not a palindrome.")'''
+
+
+'''#check whether given number is armstrong or not
+def is_armstrong(number):
+    # Convert the number to a string to easily iterate over digits
+    str_num = str(number)
+    num_digits = len(str_num)
+    
+    # Calculate the sum of each digit raised to the power of num_digits
+    sum_of_powers = sum(int(digit) ** num_digits for digit in str_num)
+    
+    # Check if the sum of powers is equal to the original number
+    return sum_of_powers == number
+
+# Test the function
+number = 45
+if is_armstrong(number):
+    print(f"{number} is an Armstrong number.")
+else:
+    print(f"{number} is not an Armstrong number.")'''
+
+
+'''#check whether given number is friendly number or not
+def sum_of_proper_divisors(number):
+    divisors = [1]  # 1 is a proper divisor of any number greater than 1
+    for i in range(2, int(number ** 0.5) + 1):
+        if number % i == 0:
+            divisors.append(i)
+            if i != number // i:
+                divisors.append(number // i)
+    return sum(divisors)
+
+def are_friendly(number1, number2):
+    return (sum_of_proper_divisors(number1) == number2 and 
+            sum_of_proper_divisors(number2) == number1)
+
+# Test the function
+number1 = 220
+number2 = 284
+if are_friendly(number1, number2):
+    print(f"{number1} and {number2} are friendly numbers.")
+else:
+    print(f"{number1} and {number2} are not friendly numbers.")'''
+
+
+'''#check whether given number is strong or not
+import math
+
+def is_strong_number(number):
+    # Convert the number to a string to easily iterate over digits
+    str_num = str(number)
+    
+    # Calculate the sum of the factorials of each digit
+    sum_of_factorials = sum(math.factorial(int(digit)) for digit in str_num)
+    
+    # Check if the sum of factorials is equal to the original number
+    return sum_of_factorials == number
+
+# Test the function
+number = 145
+if is_strong_number(number):
+    print(f"{number} is a strong number.")
+else:
+    print(f"{number} is not a strong number.")'''
+
+
+#find sum of n natural numbers
+def sum_of_natural_numbers(n):
+    # Using the formula to calculate the sum of the first n natural numbers
+    return n * (n + 1) // 2
+
+# Test the function
+n = 10
+print(f"The sum of the first {n} natural numbers is {sum_of_natural_numbers(n)}.")
